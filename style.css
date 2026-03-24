@@ -136,7 +136,9 @@ footer {
         justify-content: space-evenly;
         margin-bottom: 15px;
         padding: 15px;
+    }
 
-
+    footer {
+        position: relative;
     }
 }
