@@ -66,7 +66,9 @@ h2 {
 .intro,
 .featureList,
 .join,
-.welcome {
+.welcome,
+.community,
+.post {
     color: #f8e2fc;
     font-family: Inter, sans-serif;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -77,6 +79,24 @@ h2 {
     font-size: 1.25rem;
     margin: 20px;
     list-style: none;
+}
+
+.communityPosts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+h3 {
+    color: #f8e2fc;
+    font-family: Inter, sans-serif;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
 }
 
 a {
@@ -230,10 +250,26 @@ footer {
         text-align: center;
     }
 
-    .featureList {
+    nav ul {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+
+    h1,
+    h2,
+    h3,
+    .intro,
+    .featureList,
+    .join,
+    .welcome,
+    .community,
+    .post {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
     }
 
     .featureList li {
@@ -248,5 +284,23 @@ footer {
 
     footer {
         position: relative;
+    }
+
+    form {
+        width: 100%;
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+        max-width: none;
+    }
+
+    textarea {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        width: 90%;
+        max-width: none;
     }
 }
