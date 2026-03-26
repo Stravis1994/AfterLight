@@ -13,8 +13,8 @@ addEventListener("DOMContentLoaded", function () {
         console.log
             ("Password:", password);
 
-        // For demonstration, we'll just reset the form
-        signUpForm.reset();
+        // For demonstration, we'll just load the home page
+        window.location.href = "index.html";
         alert("Account created successfully!");
     });
 });
