@@ -241,6 +241,17 @@ footer {
 
 }
 
+img {
+    width: 300px;
+    height: auto;
+
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media screen and (max-width: 600px) {
 
@@ -302,5 +313,11 @@ footer {
         padding: 10px;
         width: 90%;
         max-width: none;
+    }
+
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
