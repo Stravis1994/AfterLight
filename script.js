@@ -3,19 +3,20 @@ addEventListener("DOMContentLoaded", function () {
 
     signUpForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        const username = document.getElementById("username").value;
+        const name = document.getElementById("username").value;
+        const surname = document.getElementById("surname").value;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
         // Here you would typically send the data to your server for processing
-        console.log("Username:", username);
+        console.log("name:", name);
+        console.log("Surname:", surname);
         console.log("Email:", email);
         console.log
             ("Password:", password);
 
         // For demonstration, we'll just load the home page
         window.location.href = "index.html";
-        alert("Account created successfully!");
     });
 });
 
