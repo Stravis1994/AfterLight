@@ -336,4 +336,8 @@ span {
         justify-content: center;
         align-items: center;
     }
+
+    .joinButton {
+        justify-content: center;
+    }
 }
