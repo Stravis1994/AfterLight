@@ -255,10 +255,6 @@ footer {
     color: #f8e2fc;
     font-family: Inter, sans-serif;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-
 }
 
 img {
