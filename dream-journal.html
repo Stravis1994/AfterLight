@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 <li><a href="user-page.html">Home</a></li>
-                <li><a href="community-Page.html">Community Page</a></li>
+                <li><a href="community-page.html">Community Page</a></li>
                 <li><a href="index.html">Logout</a></li>
             </ul>
         </nav>
@@ -26,6 +26,9 @@
                 to
                 capture the
                 essence of your dreams.</p>
+
+            <ul id="dreamList"></ul>
+
             <!-- Dream journal form or entries will go here -->
             <form id="dreamJournalForm">
                 <input type="text" id="dreamTitle" name="dreamTitle" required placeholder="Title...">
@@ -34,7 +37,7 @@
                     placeholder="Last Nights Dream..."></textarea>
                 <div class="buttonContainer">
                     <button type="submit">Save Dream</button>
-                    <button type="button">Add Image</button>
+                    <button type="button" id="addImage">Add Image</button>
                 </div>
             </form>
         </section>

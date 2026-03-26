@@ -229,6 +229,26 @@ button {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
+#dreamList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #f8e2fc;
+    font-family: Inter, sans-serif;
+}
+
+#dreamList li {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: rgba(140, 40, 200, 0.3);
+    border-radius: 5px;
+}
+
+#dreamList li:hover {
+    background-color: rgba(140, 40, 200, 0.6);
+}
+
+
 footer {
     text-align: center;
     padding: 20px;
