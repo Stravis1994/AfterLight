@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Your Journal</title>
+</head>
+
+<body>
+    <header>Your Dream Journal
+        <nav>
+            <ul>
+                <li><a href="user-page.html">Home</a></li>
+                <li><a href="community-Page.html">Community Page</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="journalSection">
+            <h2>Your Dreams</h2>
+            <p class="welcome">This is where you can record your dreams. You can add details, emotions, and even images
+                to
+                capture the
+                essence of your dreams.</p>
+            <!-- Dream journal form or entries will go here -->
+            <form id="dreamJournalForm">
+                <input type="text" id="dreamTitle" name="dreamTitle" required placeholder="Title...">
+
+                <textarea id="dreamDetails" name="dreamDetails" rows="4" required
+                    placeholder="Last Nights Dream..."></textarea>
+                <div class="buttonContainer">
+                    <button type="submit">Save Dream</button>
+                    <button type="button">Add Image</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Afterlight. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -5,37 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Sign Up Afterlight</title>
+    <title>Login Afterlight</title>
 </head>
 
 <body>
-    <header>Sign Up To Afterlight
+    <header>Login To Afterlight
 
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Already A Member</a></li>
+                <li><a href="sign-up.html">Not A Member?</a></li>
             </ul>
         </nav>
+
     </header>
-
     <main>
-        <section id="signUpSection">
-            <h2>Create Your Account</h2>
-            <form id="signUpForm">
-                <label for="name">First Name:</label>
-                <input type="text" id="name" name="name" pattern="[A-Za-z]+" required>
-
-                <label for="surname">Last Name:</label>
-                <input type="text" id="surname" name="surname" pattern="[A-Za-z]+" required>
-
+        <section id="loginSection">
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" minlength="8" required>
 
-                <button type="submit">Sign Up Now</button>
+                <button type="submit">Login Now</button>
             </form>
         </section>
     </main>
