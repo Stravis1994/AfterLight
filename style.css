@@ -1,8 +1,12 @@
+/* Global Styles */
 html {
+    /* Enables smooth scrolling for in-page anchor links. */
     scroll-behavior: smooth;
 }
 
+/* Background and overall layout */
 body {
+    /* Full-page fixed background image for an immersive look. */
     background-image: url('Assets/images/BG.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,10 +14,12 @@ body {
     background-attachment: fixed;
 }
 
-/* Header and primary navigation */
+/* Header */
 
 header {
+    /* Stacks title and nav vertically in the header area. */
     flex-direction: column;
+    /* Keeps header spanning viewport width without overflow. */
     width: 100vw;
     max-width: 100%;
     box-sizing: border-box;
@@ -28,7 +34,9 @@ header {
     text-align: center;
 }
 
+/* Navigation */
 nav ul {
+    /* Horizontal nav that wraps on smaller widths. */
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -39,10 +47,12 @@ nav ul {
 }
 
 nav ul li {
+    /* Space between nav items. */
     margin: .5rem;
 }
 
 nav ul li a {
+    /* Pill-style nav links with subtle border and shadow. */
     color: rgb(255, 255, 255);
     text-decoration: none;
     padding: .5rem;
@@ -53,12 +63,15 @@ nav ul li a {
 }
 
 nav ul li:hover {
+    /* Slight enlargement on hover for feedback. */
     transform: scale(1.1);
     transition: 0.5s ease;
 }
 
+/* Main Content */
 h1,
 h2 {
+    /* Shared heading style and centered alignment. */
     color: #f8e2fc;
     font-family: Poppins, sans-serif;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -73,6 +86,7 @@ h2 {
 .welcome,
 .community,
 .post {
+    /* Shared body-text styling for primary content sections. */
     color: #f8e2fc;
     font-family: Inter, sans-serif;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -86,6 +100,7 @@ h2 {
 }
 
 .communityPosts {
+    /* Vertical stack for community posts with consistent spacing. */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,6 +109,7 @@ h2 {
 }
 
 h3 {
+    /* Subheading style matching the site palette. */
     color: #f8e2fc;
     font-family: Inter, sans-serif;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -104,6 +120,7 @@ h3 {
 }
 
 a {
+    /* Global anchor style used as bordered action links. */
     justify-content: center;
     display: flex;
     text-decoration: none;
@@ -115,7 +132,9 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
+/* Buttons */
 .joinButton {
+    /* Primary join call-to-action button. */
     display: flex;
     justify-self: center;
     width: 200px;
@@ -130,6 +149,7 @@ a {
 }
 
 .buttonContainer {
+    /* Evenly spaced button row container. */
     display: flex;
     justify-content: space-evenly;
     gap: 1rem;
@@ -137,6 +157,7 @@ a {
 }
 
 .welcomeButton {
+    /* Secondary welcome page call-to-action button. */
     display: flex;
     justify-self: center;
     width: 200px;
@@ -150,7 +171,9 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
+/* Forms */
 form {
+    /* Centers form controls in a vertical flow. */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,6 +182,7 @@ form {
 }
 
 label {
+    /* Readable labels with spacing around inputs. */
     color: #f8e2fc;
     font-family: Inter, sans-serif;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -167,6 +191,7 @@ label {
 }
 
 #dreamTitle {
+    /* Styled title input for dream entries. */
     background-color: rgba(49, 19, 76, 0.6);
     color: #f8e2fc;
     font-family: Inter, sans-serif;
@@ -179,6 +204,7 @@ label {
 }
 
 textarea {
+    /* Main dream content field with responsive max width. */
     background-color: rgba(49, 19, 76, 0.6);
     color: #f8e2fc;
     font-family: Inter, sans-serif;
@@ -194,14 +220,17 @@ textarea {
 }
 
 input::placeholder {
+    /* Keeps input placeholder text high-contrast. */
     color: #ffffff;
 }
 
 textarea::placeholder {
+    /* Keeps textarea placeholder text high-contrast. */
     color: #ffffff;
 }
 
 input {
+    /* Base input style for text-like controls. */
     background-color: rgba(140, 40, 200, 0.6);
     padding: 10px;
     margin-bottom: 20px;
@@ -212,6 +241,7 @@ input {
 }
 
 button[type="submit"] {
+    /* Submit-specific button style in forms. */
     background-color: rgba(49, 19, 76, 0.6);
     color: #f8e2fc;
     border: none;
@@ -223,6 +253,7 @@ button[type="submit"] {
 }
 
 button {
+    /* Generic button fallback style. */
     background-color: rgba(49, 19, 76, 0.6);
     color: #f8e2fc;
     border: none;
@@ -234,6 +265,7 @@ button {
 }
 
 #dreamList {
+    /* Removes bullets and applies shared list typography. */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -242,6 +274,7 @@ button {
 }
 
 #dreamList li {
+    /* Individual saved dream entry card. */
     padding: 10px;
     margin: 10px 0;
     background-color: rgba(140, 40, 200, 0.3);
@@ -249,11 +282,13 @@ button {
 }
 
 #dreamList li:hover {
+    /* Darkens card slightly on hover. */
     background-color: rgba(140, 40, 200, 0.6);
 }
 
 
 footer {
+    /* Centered footer text treatment. */
     text-align: center;
     padding: 20px;
     color: #f8e2fc;
@@ -262,26 +297,31 @@ footer {
 }
 
 img {
+    /* Default image sizing across pages. */
     width: 300px;
     height: auto;
 
 }
 
 span {
+    /* Utility centering for inline wrapper content. */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 @media screen and (max-width: 600px) {
+    /* Mobile layout adjustments for small screens. */
 
     header {
+        /* Keeps header content centered on mobile. */
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
     nav ul {
+        /* Stacks nav links vertically on mobile. */
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -297,6 +337,7 @@ span {
     .welcome,
     .community,
     .post {
+        /* Centers and stacks key text sections on mobile. */
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -304,6 +345,7 @@ span {
     }
 
     .featureList li {
+        /* Improves spacing/readability for feature bullets on mobile. */
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -314,20 +356,24 @@ span {
     }
 
     footer {
+        /* Preserves natural document flow in mobile layout. */
         position: relative;
     }
 
     form {
+        /* Allows form to use full available width on mobile. */
         width: 100%;
         padding: 10px;
     }
 
     button {
+        /* Makes buttons easier to tap on small screens. */
         width: 100%;
         max-width: none;
     }
 
     textarea {
+        /* Expands textarea width while keeping side breathing room. */
         display: flex;
         justify-content: center;
         padding: 10px;
@@ -336,12 +382,14 @@ span {
     }
 
     span {
+        /* Maintains centered utility alignment on mobile. */
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     .joinButton {
+        /* Keeps join button centered in mobile flow. */
         justify-self: center;
     }
 }
