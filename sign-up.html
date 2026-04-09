@@ -8,14 +8,13 @@
     <title>Sign Up Afterlight</title>
 </head>
 
-<body>
+<body class="signUpPage">
     <!-- Header -->
     <header><span><img src="Assets\images\logo.png"></span>Sign Up
         <!-- Navigation -->
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Already A Member</a></li>
             </ul>
         </nav>
     </header>
@@ -23,23 +22,42 @@
     <main>
         <!-- Sign Up Section -->
         <section id="signUpSection">
-            <h2>Create Your Account</h2>
-            <!-- Sign Up Form -->
-            <form id="signUpForm">
-                <label for="name">First Name:</label>
-                <input type="text" id="name" name="name" pattern="[A-Za-z]+" required>
+            <div class="authLayout">
+                <div class="authPromo">
+                    <h2>Start Your Dream Journey</h2>
+                    <p class="authLead">Create your Afterlight account to build your dream archive, join discussions,
+                        and unlock streak milestones over time.</p>
+                    <ul class="authBenefits">
+                        <li>Save and organize dreams in your personal journal</li>
+                        <li>Track streak progress and earn milestone badges</li>
+                        <li>Share thoughts with a growing dreamer community</li>
+                    </ul>
+                </div>
 
-                <label for="surname">Last Name:</label>
-                <input type="text" id="surname" name="surname" pattern="[A-Za-z]+" required>
+                <div class="authCard">
+                    <h3>Create Your Account</h3>
+                    <p class="authSubhead">A minute now, better mornings later.</p>
+                    <!-- Sign Up Form -->
+                    <form id="signUpForm">
+                        <label for="name">First Name</label>
+                        <input type="text" id="name" name="name" pattern="[A-Za-z]+" required placeholder="First name">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                        <label for="surname">Last Name</label>
+                        <input type="text" id="surname" name="surname" pattern="[A-Za-z]+" required
+                            placeholder="Last name">
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" minlength="8" required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="name@email.com">
 
-                <button type="submit">Sign Up Now</button>
-            </form>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" minlength="8" required
+                            placeholder="At least 8 characters">
+
+                        <button type="submit">Sign Up Now</button>
+                    </form>
+                    <p class="authFootnote">Already a member? <a class="textLink" href="login.html">Login here</a></p>
+                </div>
+            </div>
         </section>
     </main>
     <!-- Footer -->

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Profile - Afterlight</title>
+</head>
+
+<body class="profilePage">
+    <!-- Header -->
+    <header><span><img src="Assets\images\logo.png"></span>Profile
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="user-page.html">Dashboard</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="profilePage">
+        <section class="profileSection">
+            <div class="profileIntro">
+                <h1>Your Profile</h1>
+                <p class="profileLead">Manage your profile details and personalize how you appear in the Afterlight community.</p>
+            </div>
+
+            <div class="profileCard">
+                <div class="profileAvatar" aria-hidden="true">AD</div>
+                <h2>Account Details</h2>
+                <form class="profileForm">
+                    <div class="profileGrid">
+                        <div class="profileField">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" value="Avery">
+                        </div>
+                        <div class="profileField">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" value="Dreamer">
+                        </div>
+                        <div class="profileField">
+                            <label for="displayName">Display Name</label>
+                            <input type="text" id="displayName" name="displayName" value="Avery D.">
+                        </div>
+                        <div class="profileField">
+                            <label for="emailAddress">Email</label>
+                            <input type="email" id="emailAddress" name="emailAddress" value="avery@example.com">
+                        </div>
+                    </div>
+
+                    <div class="profileField">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" name="bio" rows="4" placeholder="Share a bit about your dream journey..."></textarea>
+                    </div>
+
+                    <div class="profileActions">
+                        <button type="button" class="saveProfileButton">Save Profile</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Afterlight. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

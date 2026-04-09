@@ -5,42 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Afterlight</title>
+    <title>My Dashboard - Afterlight</title>
 </head>
 
-<body>
-    <header><span><img src="Assets\images\logo.png"></span>Welcome Dreamer
-        <!-- Header -->
+<body class="userPage">
+    <header><span><img src="Assets\images\logo.png"></span>Dashboard
+        <!-- Navigation -->
         <nav>
             <ul>
-                <li><a href="dream-journal.html">Dream Journal</a></li>
-                <li><a href="community-page.html">Community Page</a></li>
                 <li><a href="index.html">Logout</a></li>
             </ul>
         </nav>
-        <!-- Main Content -->
     </header>
-    <main>
+
+    <!-- Main Content -->
+    <main class="userPage">
         <!-- Welcome Section -->
-        <section id="welcomeSection">
-            <h1>Welcome to Afterlight</h1>
-            <p class="welcome">Afterlight is your personal sanctuary for exploring the world of dreams. Here, you can
-                record your dreams, share them with a community of dream enthusiasts, and delve into the interpretations
-                of various dream symbols and themes. Whether you're a seasoned dreamer or just starting to explore the
-                realm of dreams, Afterlight offers a space for you to connect with others and gain insights into the
-                mysteries of the subconscious mind.</p>
+        <section id="welcomeSection" class="dashboardHero">
+            <div class="dashboardContent">
+                <h1>Welcome Back, Dreamer</h1>
+                <p class="dashboardLead">Your Afterlight sanctuary is ready. Explore your dream journal, track your
+                    progress, and connect with the dreaming community.</p>
+            </div>
         </section>
-        <!-- Navigation Buttons -->
-        <div class="buttonContainer">
-            <button class="welcomeButton" onclick="window.location.href='dream-journal.html'">Go To Your Dream
-                Journal</button>
-            <button class="welcomeButton" onclick="window.location.href='community-page.html'">Explore The
-                Community</button>
+
+        <!-- Quick Actions -->
+        <section id="quickActions" class="dashboardActions">
+            <div class="actionGrid">
+                <div class="actionCard">
+                    <h3>Record A Dream</h3>
+                    <p>Capture your latest dream with details, emotions, and imagery.</p>
+                    <a href="dream-journal.html" class="actionButton">Open Journal</a>
+                </div>
+                <div class="actionCard">
+                    <h3>Explore Community</h3>
+                    <p>Share insights and connect with fellow dream explorers.</p>
+                    <a href="community-page.html" class="actionButton">Visit Community</a>
+                </div>
+                <div class="actionCard">
+                    <h3>View Profile</h3>
+                    <p>Update your profile information and preferences.</p>
+                    <a href="profile-page.html" class="actionButton">Edit Profile</a>
+                </div>
+            </div>
+        </section>
     </main>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Afterlight. All rights reserved.</p>
     </footer>
+
     <!-- Scripts -->
     <script src="script.js"></script>
 </body>

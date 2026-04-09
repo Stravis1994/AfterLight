@@ -15,12 +15,11 @@ body {
 }
 
 /* Header */
-
 header {
     /* Stacks title and nav vertically in the header area. */
     flex-direction: column;
     /* Keeps header spanning viewport width without overflow. */
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -34,6 +33,15 @@ header {
     text-align: center;
 }
 
+.pageTitle {
+    /* Explicit title wrapper keeps page title perfectly centered under logo. */
+    display: block;
+    width: 100%;
+    margin-top: 0.2rem;
+    text-align: center;
+    line-height: 1.1;
+}
+
 /* Navigation */
 nav ul {
     /* Horizontal nav that wraps on smaller widths. */
@@ -42,30 +50,46 @@ nav ul {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
-    margin-right: 3rem;
+    gap: 14px;
+    margin: 1rem 0 0;
+    padding: 0;
 }
 
 nav ul li {
-    /* Space between nav items. */
-    margin: .5rem;
+    /* Keeps each nav card separate. */
+    margin: 0;
 }
 
 nav ul li a {
-    /* Pill-style nav links with subtle border and shadow. */
-    color: rgb(255, 255, 255);
+    /* Card-style nav links to match dashboard action cards. */
+    display: block;
+    min-width: 140px;
+    padding: 14px 20px;
+    color: #f8e2fc;
     text-decoration: none;
-    padding: .5rem;
-    font-size: 1.25rem;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 90px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    text-align: center;
+    border: 1px solid rgba(248, 226, 252, 0.2);
+    border-radius: 14px;
+    background: rgba(30, 10, 47, 0.72);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
-nav ul li:hover {
-    /* Slight enlargement on hover for feedback. */
-    transform: scale(1.1);
-    transition: 0.5s ease;
+nav ul li a:hover {
+    /* Lifted hover state to echo dashboard cards. */
+    transform: translateY(-4px);
+    border-color: rgba(248, 226, 252, 0.35);
+    background: linear-gradient(160deg, rgba(49, 19, 76, 0.92), rgba(30, 10, 47, 0.96));
+    box-shadow: 0 12px 32px rgba(109, 42, 151, 0.3);
+}
+
+nav ul li a:focus-visible {
+    /* Keyboard focus for nav cards. */
+    outline: 2px solid #ca74f3;
+    outline-offset: 2px;
 }
 
 /* Main Content */
@@ -100,6 +124,1205 @@ h2 {
     list-style: none;
 }
 
+/* Login page */
+.loginPage #loginSection {
+    /* Centers login content and constrains line lengths. */
+    width: min(94vw, 1120px);
+    margin: 24px auto 46px;
+}
+
+.loginPage .authLayout {
+    /* Creates a two-panel hero login layout. */
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.loginPage .authPromo,
+.loginPage .authCard {
+    /* Shared panel treatment for login content blocks. */
+    border: 1px solid rgba(248, 226, 252, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
+}
+
+.loginPage .authPromo {
+    /* Intro panel with supporting feature bullets. */
+    padding: 28px 24px;
+    background: linear-gradient(160deg, rgba(76, 32, 110, 0.78), rgba(34, 11, 55, 0.8));
+}
+
+.loginPage .authPromo h2 {
+    /* Gives the left-panel heading stronger presence. */
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    margin: 0 0 10px;
+}
+
+.loginPage .authLead {
+    /* Intro paragraph beneath promo heading. */
+    margin: 0 0 16px;
+    color: #f8e2fc;
+    font-family: Inter, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.loginPage .authBenefits {
+    /* Checklist-style value propositions. */
+    margin: 0;
+    padding-left: 18px;
+    color: #f8e2fc;
+    font-family: Inter, sans-serif;
+    line-height: 1.7;
+}
+
+.loginPage .authCard {
+    /* Primary authentication card. */
+    padding: 24px 22px;
+    background: rgba(30, 10, 47, 0.82);
+}
+
+.loginPage .authCard h3 {
+    /* Headline for login card. */
+    margin: 0;
+    padding: 0;
+}
+
+.loginPage .authSubhead {
+    /* Secondary prompt text in auth card. */
+    margin: 8px 0 14px;
+    text-align: center;
+    color: rgba(248, 226, 252, 0.86);
+    font-family: Inter, sans-serif;
+}
+
+.loginPage #loginForm {
+    /* Stacks login fields with consistent spacing. */
+    gap: 8px;
+    padding: 8px 0 0;
+}
+
+.loginPage #loginForm input[type="email"],
+.loginPage #loginForm input[type="password"] {
+    /* Improves readability and tap targets in auth inputs. */
+    width: min(100%, 420px);
+    background: rgba(140, 40, 200, 0.32);
+    color: #f8e2fc;
+}
+
+.loginPage #loginForm input[type="email"]::placeholder,
+.loginPage #loginForm input[type="password"]::placeholder {
+    /* Soft placeholder color to reduce visual noise. */
+    color: rgba(248, 226, 252, 0.72);
+}
+
+.loginPage .authRow {
+    /* Holds remember-me and forgot-password controls. */
+    width: min(100%, 420px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0 8px;
+}
+
+.loginPage .rememberMe {
+    /* Inline checkbox label style. */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.loginPage .rememberMe input {
+    /* Keeps checkbox sizing natural while using shared input rules elsewhere. */
+    width: auto;
+    margin: 0;
+    box-shadow: none;
+}
+
+.loginPage .textLink {
+    /* Converts utility links away from pill-button anchor style. */
+    display: inline;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: #f5c9ff;
+    font-size: 0.95rem;
+    text-decoration: underline;
+}
+
+.loginPage .textLink:hover {
+    /* Slight color lift for utility link hover. */
+    color: #ffe9ff;
+}
+
+.loginPage #loginForm button[type="submit"] {
+    /* Makes primary auth CTA feel prominent and modern. */
+    width: min(100%, 420px);
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+}
+
+.loginPage .authFootnote {
+    /* Bottom helper text for account creation prompt. */
+    text-align: center;
+    color: rgba(248, 226, 252, 0.9);
+    font-family: Inter, sans-serif;
+    margin: 14px 0 0;
+}
+
+/* Sign-up page */
+.signUpPage #signUpSection {
+    /* Centers sign-up content and aligns with login page width. */
+    width: min(94vw, 1120px);
+    margin: 24px auto 46px;
+}
+
+.signUpPage .authLayout {
+    /* Mirrors polished two-panel auth structure. */
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.signUpPage .authPromo,
+.signUpPage .authCard {
+    /* Shared panel treatment for sign-up blocks. */
+    border: 1px solid rgba(248, 226, 252, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
+}
+
+.signUpPage .authPromo {
+    /* Intro panel with value highlights. */
+    padding: 28px 24px;
+    background: linear-gradient(160deg, rgba(76, 32, 110, 0.78), rgba(34, 11, 55, 0.8));
+}
+
+.signUpPage .authPromo h2 {
+    /* Left-aligns heading for stronger layout contrast. */
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    margin: 0 0 10px;
+}
+
+.signUpPage .authLead {
+    /* Intro paragraph under sign-up heading. */
+    margin: 0 0 16px;
+    color: #f8e2fc;
+    font-family: Inter, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.signUpPage .authBenefits {
+    /* Benefit list styling for sign-up panel. */
+    margin: 0;
+    padding-left: 18px;
+    color: #f8e2fc;
+    font-family: Inter, sans-serif;
+    line-height: 1.7;
+}
+
+.signUpPage .authCard {
+    /* Main account creation card. */
+    padding: 24px 22px;
+    background: rgba(30, 10, 47, 0.82);
+}
+
+.signUpPage .authCard h3 {
+    /* Sign-up card heading style. */
+    margin: 0;
+    padding: 0;
+}
+
+.signUpPage .authSubhead {
+    /* Secondary sign-up card prompt. */
+    margin: 8px 0 14px;
+    text-align: center;
+    color: rgba(248, 226, 252, 0.86);
+    font-family: Inter, sans-serif;
+}
+
+.signUpPage #signUpForm {
+    /* Stacks sign-up fields with breathing room. */
+    gap: 8px;
+    padding: 8px 0 0;
+}
+
+.signUpPage #signUpForm input[type="text"],
+.signUpPage #signUpForm input[type="email"],
+.signUpPage #signUpForm input[type="password"] {
+    /* Enhanced sign-up input treatment. */
+    width: min(100%, 420px);
+    background: rgba(140, 40, 200, 0.32);
+    color: #f8e2fc;
+}
+
+.signUpPage #signUpForm input[type="text"]::placeholder,
+.signUpPage #signUpForm input[type="email"]::placeholder,
+.signUpPage #signUpForm input[type="password"]::placeholder {
+    /* Soft placeholders for reduced visual clutter. */
+    color: rgba(248, 226, 252, 0.72);
+}
+
+.signUpPage #signUpForm button[type="submit"] {
+    /* Primary sign-up CTA style. */
+    width: min(100%, 420px);
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+}
+
+.signUpPage .authFootnote {
+    /* Helper text linking back to login. */
+    text-align: center;
+    color: rgba(248, 226, 252, 0.9);
+    font-family: Inter, sans-serif;
+    margin: 14px 0 0;
+}
+
+.signUpPage .textLink {
+    /* Plain-text utility link style for auth pages. */
+    display: inline;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: #f5c9ff;
+    font-size: 0.95rem;
+    text-decoration: underline;
+}
+
+.signUpPage .textLink:hover {
+    /* Hover color lift for auth utility links. */
+    color: #ffe9ff;
+}
+
+/* Index page */
+.indexPage {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#introSection,
+#featuresSection {
+    width: 100%;
+}
+
+.heroIntro {
+    /* Hero section with gradient background and generous spacing. */
+    width: 100%;
+    padding: 60px 20px 80px;
+    background: linear-gradient(160deg, rgba(76, 32, 110, 0.45), rgba(34, 11, 55, 0.48));
+    border-bottom: 1px solid rgba(248, 226, 252, 0.2);
+}
+
+.heroContent {
+    /* Centers and constrains hero text for readability. */
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.heroContent h1 {
+    /* Large, welcoming hero heading. */
+    margin: 0 0 18px;
+    font-size: 3rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+}
+
+.heroContent .intro {
+    /* Hero subtitle with generous line-height for readability. */
+    margin: 0 0 32px;
+    font-size: 1.15rem;
+    color: rgba(248, 226, 252, 0.95);
+    font-family: Inter, sans-serif;
+    line-height: 1.8;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.heroCTA {
+    /* Primary hero call-to-action button. */
+    display: inline-block;
+    padding: 14px 42px;
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+    color: #f8e2fc;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(109, 42, 151, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.heroCTA:hover {
+    /* Elevated hover state for hero CTA. */
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(109, 42, 151, 0.5);
+}
+
+#featuresSection {
+    /* Feature section heading and spacing. */
+    padding: 30px 20px 20px;
+    text-align: center;
+}
+
+#featuresSection h2 {
+    /* Section heading styling. */
+    margin: 0 0 10px;
+    font-size: 2rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+}
+
+.joinCTA {
+    /* Main call-to-action section with distinct background. */
+    width: min(94vw, 760px);
+    margin: 32px auto 0;
+    padding: 24px 20px;
+    background: linear-gradient(160deg, rgba(76, 32, 110, 0.42), rgba(34, 11, 55, 0.45));
+    border: 1px solid rgba(248, 226, 252, 0.2);
+    border-radius: 18px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.joinCard {
+    /* Card container for join CTA content. */
+    width: min(100%, 640px);
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    background: rgba(30, 10, 47, 0.7);
+    border: 1px solid rgba(248, 226, 252, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.joinCard h2 {
+    /* Main heading for join card. */
+    margin: 0 0 16px;
+    font-size: 2rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+}
+
+.joinLead {
+    /* Lead paragraph in join card. */
+    margin: 0 0 24px;
+    font-size: 1.05rem;
+    color: rgba(248, 226, 252, 0.9);
+    font-family: Inter, sans-serif;
+    line-height: 1.7;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.joinPerks {
+    /* Benefit list in join card. */
+    max-width: 640px;
+    margin: 0 auto;
+    color: rgba(248, 226, 252, 0.85);
+    font-family: Inter, sans-serif;
+    line-height: 1.8;
+}
+
+.joinPerks li {
+    /* Individual benefit item with icon spacing. */
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.joinPerks li::before {
+    /* Checkmark bullet for perks. */
+    content: '✓ ';
+    margin-right: 8px;
+    color: #ca74f3;
+    font-weight: 700;
+}
+
+.joinCard .joinButton {
+    /* Primary join button in card context, centered. */
+    display: block;
+    margin: 0 auto;
+    padding: 14px 42px;
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+    color: #f8e2fc;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    border: none;
+    border-radius: 8px;
+    width: min(100%, 420px);
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(109, 42, 151, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.joinCard .joinButton:hover {
+    /* Hover state for join button. */
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(109, 42, 151, 0.5);
+}
+
+/* Login card on index page */
+.loginCTA {
+    /* Login call-to-action section with distinct background. */
+    width: min(94vw, 760px);
+    margin: 24px auto 0;
+    padding: 24px 20px;
+    background: linear-gradient(160deg, rgba(76, 32, 110, 0.42), rgba(34, 11, 55, 0.45));
+    border: 1px solid rgba(248, 226, 252, 0.2);
+    border-radius: 18px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.loginCard {
+    /* Card container for login content. */
+    width: min(100%, 640px);
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    background: rgba(30, 10, 47, 0.7);
+    border: 1px solid rgba(248, 226, 252, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
+    box-sizing: border-box;
+}
+
+.loginCard h2 {
+    /* Main heading for login card. */
+    margin: 0 0 16px;
+    font-size: 2rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+}
+
+.loginLead {
+    /* Lead paragraph in login card. */
+    margin: 0 0 24px;
+    font-size: 1.05rem;
+    color: rgba(248, 226, 252, 0.9);
+    font-family: Inter, sans-serif;
+    line-height: 1.7;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.loginPerks {
+    /* Benefit list in login card. */
+    margin: 0 0 28px;
+    padding-left: 0;
+    list-style: none;
+    color: rgba(248, 226, 252, 0.85);
+    font-family: Inter, sans-serif;
+    line-height: 1.8;
+}
+
+.loginPerks li {
+    /* Individual benefit item with icon spacing. */
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginPerks li::before {
+    /* Checkmark bullet for perks. */
+    content: '✓ ';
+    margin-right: 8px;
+    color: #ca74f3;
+    font-weight: 700;
+}
+
+.loginCard .loginButton {
+    /* Primary login button in card context, centered. */
+    display: block;
+    margin: 0 auto;
+    padding: 14px 42px;
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+    color: #f8e2fc;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    border: none;
+    border-radius: 8px;
+    width: min(100%, 420px);
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(109, 42, 151, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.loginCard .loginButton:hover {
+    /* Hover state for login button. */
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(109, 42, 151, 0.5);
+}
+
+/* User Dashboard Page */
+.userPage {
+    width: 100%;
+    max-width: 100%;
+}
+
+.dashboardHero {
+    /* Hero section for dashboard landing. */
+    width: 100%;
+    padding: 60px 20px 80px;
+    background: linear-gradient(160deg, rgba(76, 32, 110, 0.45), rgba(34, 11, 55, 0.48));
+    border-bottom: 1px solid rgba(248, 226, 252, 0.2);
+}
+
+.dashboardContent {
+    /* Centers and constrains dashboard intro. */
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dashboardContent h1 {
+    /* Dashboard hero heading. */
+    margin: 0 0 18px;
+    font-size: 3rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+}
+
+.dashboardLead {
+    /* Dashboard intro text. */
+    margin: 0;
+    font-size: 1.15rem;
+    color: rgba(248, 226, 252, 0.95);
+    font-family: Inter, sans-serif;
+    line-height: 1.8;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dashboardActions {
+    /* Action cards container section. */
+    width: 100%;
+    padding: 60px 20px;
+    background: rgba(42, 13, 64, 0.3);
+}
+
+.actionGrid {
+    /* Grid of action cards. */
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.actionCard {
+    /* Individual action card. */
+    padding: 28px 24px;
+    background: rgba(30, 10, 47, 0.7);
+    border: 1px solid rgba(248, 226, 252, 0.2);
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+}
+
+.actionCard:hover {
+    /* Elevated hover state for action cards. */
+    transform: translateY(-4px);
+    border-color: rgba(248, 226, 252, 0.35);
+    box-shadow: 0 12px 32px rgba(109, 42, 151, 0.3);
+}
+
+.actionCard h3 {
+    /* Action card heading. */
+    margin: 0 0 10px;
+    font-size: 1.35rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+}
+
+.actionCard p {
+    /* Action card description. */
+    margin: 0 0 20px;
+    font-size: 0.95rem;
+    color: rgba(248, 226, 252, 0.8);
+    font-family: Inter, sans-serif;
+    line-height: 1.6;
+}
+
+.actionButton {
+    /* Action card button. */
+    display: inline-block;
+    padding: 12px 32px;
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+    color: #f8e2fc;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(109, 42, 151, 0.35);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.actionButton:hover {
+    /* Hover state for action button. */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(109, 42, 151, 0.5);
+}
+
+.actionButton:active {
+    /* Active state for action button. */
+    transform: translateY(0);
+}
+
+.actionButton:focus-visible {
+    /* Focus outline for keyboard navigation. */
+    outline: 2px solid #ca74f3;
+    outline-offset: 2px;
+}
+
+/* Profile Page */
+.profilePage {
+    width: 100%;
+    max-width: 100%;
+}
+
+.profileSection {
+    width: min(94vw, 980px);
+    margin: 30px auto 50px;
+}
+
+.profileIntro {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.profileLead {
+    margin: 10px auto 0;
+    max-width: 680px;
+    color: rgba(248, 226, 252, 0.92);
+    font-family: Inter, sans-serif;
+    line-height: 1.7;
+}
+
+.profileCard {
+    padding: 30px 24px;
+    background: rgba(30, 10, 47, 0.78);
+    border: 1px solid rgba(248, 226, 252, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
+}
+
+.profileAvatar {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(248, 226, 252, 0.35);
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileCard h2 {
+    margin: 0 0 20px;
+}
+
+.profileForm {
+    width: 100%;
+    padding: 0;
+    align-items: stretch;
+}
+
+.profileGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.profileField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profileField label {
+    margin: 0;
+}
+
+.profileField input,
+.profileField textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    background: rgba(140, 40, 200, 0.28);
+    color: #f8e2fc;
+    border: 1px solid rgba(248, 226, 252, 0.25);
+    border-radius: 8px;
+    font-family: Inter, sans-serif;
+    font-size: 0.95rem;
+}
+
+.profileField textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.profileActions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.saveProfileButton {
+    min-width: 220px;
+    padding: 12px 24px;
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+    color: #f8e2fc;
+    border: none;
+    border-radius: 8px;
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(109, 42, 151, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.saveProfileButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(109, 42, 151, 0.5);
+}
+
+/* Community Page */
+.communityPage {
+    width: 100%;
+    max-width: 100%;
+}
+
+.communityHero {
+    /* Hero section for community page. */
+    width: 100%;
+    padding: 60px 20px 80px;
+    background: linear-gradient(160deg, rgba(76, 32, 110, 0.45), rgba(34, 11, 55, 0.48));
+    border-bottom: 1px solid rgba(248, 226, 252, 0.2);
+}
+
+.communityContent {
+    /* Centers and constrains community intro. */
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.communityContent h1 {
+    /* Community hero heading. */
+    margin: 0 0 18px;
+    font-size: 3rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+}
+
+.communityLead {
+    /* Community intro text. */
+    margin: 0;
+    font-size: 1.15rem;
+    color: rgba(248, 226, 252, 0.95);
+    font-family: Inter, sans-serif;
+    line-height: 1.8;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.communityFeed {
+    /* Community feed container. */
+    width: 100%;
+    padding: 40px 20px;
+}
+
+.communityFeed h2 {
+    /* Feed section heading. */
+    text-align: center;
+    margin: 0 0 32px;
+    font-size: 2rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+}
+
+/* Dream Journal Page */
+.journalPage {
+    width: 100%;
+    max-width: 100%;
+}
+
+#journalSection {
+    /* Main journal section container. */
+    width: 100%;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+.journalHero {
+    /* Journal page hero intro. */
+    text-align: center;
+    margin: 0 0 48px;
+    padding: 40px 20px;
+    background: linear-gradient(160deg, rgba(76, 32, 110, 0.35), rgba(34, 11, 55, 0.38));
+    border-radius: 14px;
+    border: 1px solid rgba(248, 226, 252, 0.15);
+}
+
+.journalHero h1 {
+    /* Journal page heading. */
+    margin: 0 0 12px;
+    font-size: 2.5rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+}
+
+.journalLead {
+    /* Journal intro lead text. */
+    margin: 0;
+    font-size: 1.05rem;
+    color: rgba(248, 226, 252, 0.85);
+    font-family: Inter, sans-serif;
+    line-height: 1.7;
+}
+
+#dreamEntriesPanel {
+    /* Dream entries list container. */
+    flex: 1;
+}
+
+#dreamEntriesPanel h2 {
+    /* Entries heading. */
+    margin: 0 0 20px;
+    font-size: 1.5rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+}
+
+.dreamEntries {
+    /* Dream list styling. */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dreamEntries li {
+    /* Individual dream entry item. */
+    margin: 0 0 12px;
+    padding: 16px;
+    background: rgba(49, 19, 76, 0.6);
+    border: 1px solid rgba(248, 226, 252, 0.2);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.dreamEntries li:hover {
+    /* Hover state for dream entries. */
+    border-color: rgba(248, 226, 252, 0.35);
+    box-shadow: 0 4px 12px rgba(109, 42, 151, 0.2);
+}
+
+#streakTracker h2 {
+    /* Tracker heading. */
+    margin: 0 0 20px;
+    font-size: 1.5rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+}
+
+.formWrapper {
+    /* Form container wrapper. */
+    width: min(100%, 980px);
+    margin: 48px auto 0;
+    padding: 40px 24px;
+    background: rgba(30, 10, 47, 0.7);
+    border: 1px solid rgba(248, 226, 252, 0.2);
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
+
+.formWrapper h2 {
+    /* Form section heading. */
+    margin: 0 0 28px;
+    font-size: 1.5rem;
+    color: #f8e2fc;
+    font-family: Poppins, sans-serif;
+    text-align: center;
+}
+
+.dreamForm {
+    /* Dream form layout. */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.formGroup {
+    /* Individual form group. */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.formGroup label {
+    /* Form label styling. */
+    color: #f8e2fc;
+    font-family: Inter, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.formGroup input,
+.formGroup textarea {
+    /* Form input styling. */
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(140, 40, 200, 0.28);
+    color: #f8e2fc;
+    border: 1px solid rgba(248, 226, 252, 0.25);
+    border-radius: 8px;
+    font-family: Inter, sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.formGroup textarea {
+    /* Larger textarea styling for dream details. */
+    padding: 20px;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+#dreamDetails {
+    /* Keep dream details aligned with the title field while preserving a taller writing area. */
+    width: 100%;
+    max-width: none;
+    min-height: 320px;
+    height: 320px;
+    box-sizing: border-box;
+    align-self: stretch;
+}
+
+#threadBody {
+    /* Keep thread textarea similar style but slightly shorter than dream details. */
+    width: 100%;
+    max-width: none;
+    min-height: 240px;
+    height: 240px;
+    box-sizing: border-box;
+    align-self: stretch;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    /* Soft placeholder color. */
+    color: rgba(248, 226, 252, 0.6);
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    /* Focus state for form inputs. */
+    outline: none;
+    background: rgba(140, 40, 200, 0.38);
+    border-color: rgba(248, 226, 252, 0.45);
+    box-shadow: 0 0 0 3px rgba(202, 116, 243, 0.2);
+}
+
+.formActions {
+    /* Button container for form. */
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.submitButton {
+    /* Primary submit button. */
+    flex: 1;
+    padding: 14px 20px;
+    background: linear-gradient(140deg, rgba(202, 116, 243, 0.92), rgba(109, 42, 151, 0.95));
+    color: #f8e2fc;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(109, 42, 151, 0.35);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submitButton:hover {
+    /* Hover state for submit button. */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(109, 42, 151, 0.5);
+}
+
+.submitButton:active {
+    /* Active state for submit button. */
+    transform: translateY(0);
+}
+
+.submitButton:focus-visible {
+    /* Focus outline for keyboard navigation. */
+    outline: 2px solid #ca74f3;
+    outline-offset: 2px;
+}
+
+.secondaryButton {
+    /* Secondary action button. */
+    padding: 14px 20px;
+    background: rgba(49, 19, 76, 0.6);
+    color: #f8e2fc;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    border: 1px solid rgba(248, 226, 252, 0.3);
+    border-radius: 8px;
+    box-shadow: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.secondaryButton:hover {
+    /* Hover state for secondary button. */
+    border-color: rgba(248, 226, 252, 0.5);
+    background: rgba(49, 19, 76, 0.8);
+}
+
+.secondaryButton:focus-visible {
+    /* Focus outline for keyboard navigation. */
+    outline: 2px solid #ca74f3;
+    outline-offset: 2px;
+}
+
+/* Features banner */
+#featuresSection {
+    /* Stretches the feature area across the page like a banner. */
+    width: 100%;
+}
+
+.featureCarousel {
+    /* Full-width banner shell with subtle panel styling. */
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0 40px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    background: rgba(49, 19, 76, 0.55);
+    border-top: 1px solid rgba(248, 226, 252, 0.25);
+    border-bottom: 1px solid rgba(248, 226, 252, 0.25);
+    overflow: visible;
+}
+
+.featureList {
+    /* Static feature cards arranged in a wrapped row. */
+    --feature-gap: 56px;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--feature-gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    animation: none;
+    will-change: auto;
+}
+
+.featureCarousel:hover .featureList {
+    /* Pauses movement while the user reads a card. */
+    animation-play-state: paused;
+}
+
+.featureCard {
+    /* Individual banner item card. */
+    flex: 0 0 clamp(260px, 30vw, 360px);
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 14px;
+    background: rgba(49, 19, 76, 0.7);
+    border: 1px solid rgba(248, 226, 252, 0.3);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    line-height: 1.5;
+}
+
+.featureCard h2 {
+    /* Card heading above card body text. */
+    margin: 0 0 10px;
+    font-size: 1.35rem;
+}
+
+.featureCard p {
+    /* Tight paragraph spacing for compact cards. */
+    margin: 0;
+}
+
+.featureCard[aria-hidden="true"] {
+    /* Hide duplicated marquee-only cards when not scrolling. */
+    display: none;
+}
+
+@keyframes featureBannerScroll {
+    from {
+        transform: translateX(calc(-50% - (var(--feature-gap) / 2)));
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
 .communityPosts {
     /* Vertical stack for community posts with consistent spacing. */
     display: flex;
@@ -107,6 +1330,69 @@ h2 {
     align-items: center;
     justify-content: center;
     gap: 20px;
+}
+
+#communityPosts {
+    /* Centers and bounds the recent-posts ticker section. */
+    width: min(94vw, 980px);
+    margin: 0 auto;
+}
+
+.communityTicker {
+    /* Crops scrolling posts to create a continuous vertical feed window. */
+    height: 360px;
+    overflow: hidden;
+    margin: 22px auto 30px;
+    padding: 8px;
+    border-top: 1px solid rgba(248, 226, 252, 0.25);
+    border-bottom: 1px solid rgba(248, 226, 252, 0.25);
+    background: rgba(49, 19, 76, 0.42);
+}
+
+.communityTrack {
+    /* Scrolls post entries upward in a seamless loop. */
+    --community-gap: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--community-gap);
+    animation: communityVerticalScroll 22s linear infinite;
+    will-change: transform;
+}
+
+.communityTicker:hover .communityTrack {
+    /* Pauses movement for easier reading on hover. */
+    animation-play-state: paused;
+}
+
+.entry {
+    /* Styles each community post as a card in the ticker. */
+    background: rgba(49, 19, 76, 0.74);
+    border: 1px solid rgba(248, 226, 252, 0.25);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+    padding: 14px 10px;
+}
+
+.entry h3 {
+    /* Keeps post titles compact in ticker cards. */
+    margin: 0;
+    padding-top: 4px;
+}
+
+.entry .post {
+    /* Tightens paragraph spacing for scrolling cards. */
+    margin: 8px 10px 6px;
+    padding: 6px 12px;
+}
+
+@keyframes communityVerticalScroll {
+    from {
+        transform: translateY(calc(-50% - (var(--community-gap) / 2)));
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 h3 {
@@ -131,9 +1417,39 @@ a {
     border-radius: 90px;
     padding: .5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    /* Hover state for links. */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+a:focus-visible {
+    /* Focus outline for keyboard navigation. */
+    outline: 2px solid #ca74f3;
+    outline-offset: 2px;
 }
 
 /* Buttons */
+button {
+    /* Global button styling. */
+    transition: all 0.2s ease;
+}
+
+button:focus-visible {
+    /* Focus outline for keyboard navigation. */
+    outline: 2px solid #ca74f3;
+    outline-offset: 2px;
+}
+
+button:active {
+    /* Active state feedback. */
+    transform: translateY(1px);
+}
+
 .joinButton {
     /* Primary join call-to-action button. */
     display: flex;
@@ -147,6 +1463,20 @@ a {
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    transition: all 0.2s ease;
+}
+
+.joinButton:hover {
+    /* Hover state for join button. */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
+    background-color: rgba(49, 19, 76, 0.8);
+}
+
+.joinButton:focus-visible {
+    /* Focus outline for keyboard navigation. */
+    outline: 2px solid #ca74f3;
+    outline-offset: 2px;
 }
 
 .buttonContainer {
@@ -281,6 +1611,31 @@ button {
     font-family: Inter, sans-serif;
 }
 
+#journalLayout {
+    /* Splits entries and tracker into a two-column desktop layout. */
+    width: min(94vw, 1100px);
+    margin: 10px auto 22px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 18px;
+    align-items: start;
+}
+
+#dreamEntriesPanel {
+    /* Main entries column panel. */
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(49, 19, 76, 0.55);
+    border: 1px solid rgba(248, 226, 252, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#dreamEntriesPanel h3 {
+    /* Keeps entries heading compact. */
+    margin: 0 0 6px;
+    padding-top: 0;
+}
+
 #dreamList li {
     /* Individual saved dream entry card. */
     padding: 10px;
@@ -292,6 +1647,200 @@ button {
 #dreamList li:hover {
     /* Darkens card slightly on hover. */
     background-color: rgba(140, 40, 200, 0.6);
+}
+
+#streakTracker {
+    /* Gamified summary panel shown beside dream entries. */
+    width: 100%;
+    margin: 0;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(49, 19, 76, 0.68);
+    border: 1px solid rgba(248, 226, 252, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#streakTracker h3 {
+    /* Keeps tracker heading compact inside panel. */
+    margin: 0 0 8px;
+    padding-top: 0;
+}
+
+.trackerLevelWrap {
+    /* Displays level as a visual focal point. */
+    width: 88px;
+    height: 88px;
+    margin: 6px auto 14px;
+    border-radius: 50%;
+    border: 2px solid rgba(248, 226, 252, 0.5);
+    background: radial-gradient(circle at 30% 25%, rgba(248, 226, 252, 0.42), rgba(140, 40, 200, 0.32));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.levelLabel {
+    /* Small label text inside the level pill. */
+    font-family: Inter, sans-serif;
+    color: rgba(248, 226, 252, 0.85);
+    font-size: 0.75rem;
+}
+
+.levelIcon {
+    /* Tiny icon accent for level bubble. */
+    font-size: 0.9rem;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.levelValue {
+    /* Large level number for quick scanning. */
+    font-family: Poppins, sans-serif;
+    color: #f8e2fc;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.trackerGrid {
+    /* Two quick-glance stat cards. */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.trackerCard {
+    /* Card style for key streak numbers. */
+    background: rgba(248, 226, 252, 0.1);
+    border: 1px solid rgba(248, 226, 252, 0.24);
+    border-radius: 10px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trackerIcon {
+    /* Icon marker at top of each stat card. */
+    font-size: 1rem;
+    line-height: 1;
+    margin-bottom: 4px;
+    opacity: 0.95;
+}
+
+.trackerLabel {
+    /* Small label for each stat card. */
+    font-family: Inter, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: rgba(248, 226, 252, 0.8);
+    text-transform: uppercase;
+}
+
+.trackerValue {
+    /* Main stat number in each card. */
+    font-family: Poppins, sans-serif;
+    font-size: 1.5rem;
+    color: #f8e2fc;
+    line-height: 1.2;
+}
+
+.trackerMeta {
+    /* Descriptor below stat values. */
+    font-family: Inter, sans-serif;
+    font-size: 0.8rem;
+    color: rgba(248, 226, 252, 0.8);
+}
+
+.trackerDate {
+    /* Compact last-entry line between cards and progress. */
+    text-align: center;
+    font-family: Inter, sans-serif;
+    color: rgba(248, 226, 252, 0.86);
+    font-size: 0.92rem;
+    margin: 4px 0 10px;
+}
+
+.xpSection {
+    /* Progress bar section for streak XP. */
+    margin: 6px 0 10px;
+}
+
+.xpHead {
+    /* Header row for XP values. */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Inter, sans-serif;
+    color: rgba(248, 226, 252, 0.9);
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.xpBar {
+    /* XP track container. */
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(248, 226, 252, 0.16);
+    overflow: hidden;
+}
+
+#xpFill {
+    /* Animated fill for XP progress. */
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #d88df7, #f7d7ff);
+    transition: width 0.35s ease;
+}
+
+.rewardLine {
+    /* Brief reward status line. */
+    margin: 0;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    color: #f8e2fc;
+    font-size: 0.9rem;
+}
+
+.rewardIcon {
+    /* Icon accent for reward label. */
+    margin-right: 4px;
+}
+
+#badgeRow {
+    /* Displays earned streak badges in one row. */
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    /* Base badge chip style. */
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-family: Inter, sans-serif;
+    font-size: 0.9rem;
+    border: 1px solid rgba(248, 226, 252, 0.38);
+}
+
+.badge.locked {
+    /* Dimmed style for not-yet-unlocked badges. */
+    color: rgba(248, 226, 252, 0.55);
+    background: rgba(248, 226, 252, 0.08);
+}
+
+.badge.unlocked {
+    /* Highlight style for earned badges. */
+    color: #2a0d40;
+    background: linear-gradient(145deg, #f9f1ff, #d8aff6);
+    border-color: rgba(248, 226, 252, 0.85);
+    font-weight: 600;
 }
 
 
@@ -321,11 +1870,58 @@ span {
 @media screen and (max-width: 600px) {
     /* Mobile layout adjustments for small screens. */
 
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        /* Prevents jank from fixed backgrounds on mobile browsers. */
+        background-attachment: scroll;
+        overflow-x: hidden;
+    }
+
+    .indexPage,
+    .userPage,
+    .communityPage,
+    .journalPage,
+    .profilePage,
+    .loginPage main,
+    .signUpPage main {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .heroContent,
+    .dashboardContent,
+    .actionGrid,
+    .communityContent,
+    .communityTicker,
+    #threadComposer,
+    #threadComposer .formWrapper,
+    .profileSection,
+    .loginPage #loginSection,
+    .signUpPage #signUpSection {
+        width: min(92vw, 760px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     header {
         /* Keeps header content centered on mobile. */
         flex-direction: column;
         align-items: center;
         text-align: center;
+        font-size: 2rem;
+        padding: 1rem 0.75rem;
+    }
+
+    .pageTitle {
+        /* Slightly tighter title sizing for mobile header balance. */
+        font-size: clamp(2rem, 8vw, 2.6rem);
+        margin-top: 0.1rem;
     }
 
     nav ul {
@@ -333,8 +1929,302 @@ span {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 10px;
     }
 
+    nav ul li a {
+        /* Makes nav cards easier to tap on mobile. */
+        width: min(84vw, 280px);
+    }
+
+    /* Index page mobile */
+    .heroIntro {
+        /* Reduces padding on mobile for better space utilization. */
+        padding: 40px 16px 60px;
+    }
+
+    .heroContent h1 {
+        /* Scales hero title for mobile screens. */
+        font-size: 2rem;
+    }
+
+    .heroContent .intro {
+        /* Adjusts lead text size for mobile readability. */
+        font-size: 1rem;
+    }
+
+    .joinCard {
+        /* Tightens join card padding on small screens. */
+        padding: 28px 20px;
+        margin: 0 auto;
+    }
+
+    .joinCard h2 {
+        /* Scales join card heading for mobile. */
+        font-size: 1.5rem;
+        margin: 0 0 14px;
+    }
+
+    .joinLead,
+    .joinPerks {
+        /* Adjusts text size for mobile readability. */
+        font-size: 0.95rem;
+    }
+
+    .joinCTA,
+    .loginCTA {
+        /* Keeps stacked auth panels compact and readable on phones. */
+        width: min(94vw, 760px);
+        margin: 20px auto 0;
+        padding: 16px 12px;
+    }
+
+    .loginCard {
+        /* Tightens login card padding on small screens. */
+        padding: 28px 20px;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .loginCard h2 {
+        /* Scales login card heading for mobile. */
+        font-size: 1.5rem;
+        margin: 0 0 14px;
+    }
+
+    .loginLead,
+    .loginPerks {
+        /* Adjusts text size for mobile readability. */
+        font-size: 0.95rem;
+    }
+
+    .dashboardContent h1 {
+        /* Scales dashboard title for mobile. */
+        font-size: 2rem;
+    }
+
+    .dashboardLead {
+        /* Adjusts dashboard lead text for mobile. */
+        font-size: 1rem;
+    }
+
+    .actionGrid {
+        /* Stack action cards on mobile. */
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .actionCard {
+        /* Tightens padding on mobile. */
+        padding: 20px 16px;
+    }
+
+    .profileSection {
+        width: min(94vw, 680px);
+    }
+
+    .profileCard {
+        padding: 24px 16px;
+    }
+
+    .profileGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .communityContent h1 {
+        /* Scales community title for mobile. */
+        font-size: 2rem;
+    }
+
+    .communityLead {
+        /* Adjusts community lead text for mobile. */
+        font-size: 1rem;
+    }
+
+    .communityFeed h2 {
+        /* Scales feed heading for mobile. */
+        font-size: 1.5rem;
+    }
+
+    #communityPosts {
+        /* Keep the discussions section centered to the viewport on mobile. */
+        width: min(92vw, 760px);
+        margin: 0 auto;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .communityFeed {
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .journalHero {
+        /* Tightens journal hero on mobile. */
+        margin: 0;
+        padding: 28px 16px;
+    }
+
+    .journalHero h1 {
+        /* Scales journal heading for mobile. */
+        font-size: 1.75rem;
+        margin: 0 0 10px;
+    }
+
+    .journalLead {
+        /* Adjusts journal lead text for mobile. */
+        font-size: 0.95rem;
+    }
+
+    #journalSection {
+        /* Reorders and centers journal blocks on mobile with consistent spacing. */
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #journalSection .journalHero {
+        order: 1;
+    }
+
+    #journalSection .formWrapper {
+        order: 2;
+    }
+
+    #journalSection #journalLayout {
+        order: 3;
+    }
+
+    #journalSection .journalHero,
+    #journalSection .formWrapper,
+    #journalSection #journalLayout {
+        width: min(92vw, 680px);
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    #journalLayout {
+        /* Stacks entries and tracker on mobile. */
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 0;
+    }
+
+    #dreamEntriesPanel,
+    #streakTracker {
+        /* Keep both mobile panels the same width and centered. */
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    #streakTracker {
+        /* Keep progress panel centered with comfortable inner spacing on phones. */
+        max-width: none;
+        margin: 0;
+        padding: 16px 14px;
+    }
+
+    .dreamEntries {
+        /* Adds consistent spacing between mobile dream entry cards. */
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .dreamEntries li {
+        margin: 0;
+    }
+
+    .trackerGrid {
+        /* Keep stat cards in a centered mobile column. */
+        width: min(100%, 360px);
+        margin: 0 auto 10px;
+    }
+
+    .trackerDate {
+        /* Center stacked date label/value for cleaner alignment. */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .xpSection {
+        /* Center progress bar block so label and meter feel anchored. */
+        width: min(100%, 360px);
+        margin: 10px auto;
+    }
+
+    .xpHead {
+        /* Place XP label and value around center instead of hard edges. */
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .rewardLine {
+        /* Center reward copy as a compact stacked line. */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        margin: 8px 0 0;
+    }
+
+    #badgeRow {
+        margin-top: 12px;
+    }
+
+    #dreamEntriesPanel h2,
+    #streakTracker h2 {
+        /* Adjusts subheadings for mobile. */
+        font-size: 1.3rem;
+    }
+
+    .formWrapper {
+        /* Tightens form padding on mobile. */
+        margin: 0;
+        padding: 24px 16px;
+    }
+
+    .formWrapper h2 {
+        /* Scales form heading for mobile. */
+        font-size: 1.3rem;
+    }
+
+    .dreamForm {
+        /* Maintains spacing on mobile. */
+        gap: 16px;
+    }
+
+    #journalSection #dreamJournalForm {
+        /* Remove generic mobile form inset so fields align evenly in the card. */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #journalSection #dreamJournalForm .formGroup,
+    #journalSection #dreamJournalForm .formActions {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .formActions {
+        /* Stacks buttons on mobile. */
+        flex-direction: column;
+        gap: 10px;
+    }
 
     h1,
     h2,
@@ -363,6 +2253,108 @@ span {
         padding: 15px;
     }
 
+    .featureCarousel {
+        /* Keeps banner comfortable on small screens. */
+        margin: 15px 0 30px;
+        padding: 14px 10px;
+    }
+
+    .featureCard {
+        /* Scales scrolling cards for phone width. */
+        flex-basis: min(78vw, 280px);
+        min-height: 170px;
+        font-size: 1.05rem;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .featureList {
+        /* Keeps spacing comfortable while cards scroll on mobile. */
+        --feature-gap: 28px;
+        animation-duration: 20s;
+    }
+
+    .featureCard h2 {
+        /* Scales card heading for mobile readability. */
+        font-size: 1.2rem;
+    }
+
+    .loginPage .authLayout {
+        /* Stacks promo and auth panels on phones. */
+        grid-template-columns: 1fr;
+    }
+
+    .loginPage #loginSection {
+        /* Keeps login content comfortably inset on mobile. */
+        margin: 16px auto 30px;
+    }
+
+    .loginPage .authPromo,
+    .loginPage .authCard {
+        /* Tightens panel padding on smaller screens. */
+        padding: 18px 14px;
+    }
+
+    .loginPage .authRow {
+        /* Wraps helper controls when space is limited. */
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .signUpPage .authLayout {
+        /* Stacks sign-up panels on phones. */
+        grid-template-columns: 1fr;
+    }
+
+    .signUpPage #signUpSection {
+        /* Keeps sign-up content comfortably inset on mobile. */
+        margin: 16px auto 30px;
+    }
+
+    .signUpPage .authPromo,
+    .signUpPage .authCard {
+        /* Tightens panel padding for mobile sign-up layout. */
+        padding: 18px 14px;
+    }
+
+    #journalLayout {
+        /* Stacks entries and tracker on small screens. */
+        grid-template-columns: 1fr;
+        gap: 14px;
+        width: min(94vw, 680px);
+    }
+
+    .trackerGrid {
+        /* Keeps stat cards readable on narrow screens. */
+        grid-template-columns: 1fr;
+    }
+
+    .communityTicker {
+        /* Keeps enough visible area for mobile vertical feed. */
+        height: 330px;
+        padding: 8px 10px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 16px auto 24px;
+    }
+
+    .communityTrack {
+        /* Slightly tighter rhythm on mobile cards. */
+        --community-gap: 14px;
+        animation-duration: 20s;
+        align-items: center;
+        width: 100%;
+    }
+
+    .communityTicker .entry {
+        /* Keep each discussion card centered with equal side spacing. */
+        width: calc(100% - 2px);
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
     footer {
         /* Preserves natural document flow in mobile layout. */
         position: relative;
@@ -381,12 +2373,11 @@ span {
     }
 
     textarea {
-        /* Expands textarea width while keeping side breathing room. */
-        display: flex;
-        justify-content: center;
+        /* Keeps textarea width aligned with other inputs on mobile. */
         padding: 10px;
-        width: 90%;
+        width: 100%;
         max-width: none;
+        box-sizing: border-box;
     }
 
     span {

@@ -13,48 +13,101 @@
     <header><span><img src="Assets\images\logo.png"></span>
         <nav>
             <ul>
-                <li><a href="sign-up.html">Sign Up</a></li>
                 <li><a href="login.html">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="indexPage">
         <!-- Intro Section -->
-        <section id="introSection">
-            <h1>Welcome to Afterlight</h1>
-            <p class="intro">Afterlight is a platform dedicated to exploring the fascinating world of dreams. Here, you
-                can
-                record your
-                dreams, share them with others, and delve into the interpretations of various dream symbols and themes.
-                Whether you're a seasoned dreamer or just starting to explore the realm of dreams, Afterlight offers a
-                space
-                for you to connect with others and gain insights into the mysteries of the subconscious mind.
-            </p>
+        <section id="introSection" class="heroIntro">
+            <div class="heroContent">
+                <h1>Welcome to Afterlight</h1>
+                <p class="intro">Afterlight is a platform dedicated to exploring the fascinating world of dreams. Here,
+                    you can record your dreams, share them with others, and delve into the interpretations of various
+                    dream symbols and themes. Whether you're a seasoned dreamer or just starting to explore, Afterlight
+                    offers a space to connect and gain insights into the mysteries of the subconscious mind.</p>
+                <a href="sign-up.html" class="heroCTA">Start Exploring Now</a>
+            </div>
         </section>
 
         <!-- Features Section -->
         <section id="featuresSection">
             <h2>Features</h2>
-            <ul class="featureList">
-                <li><strong>Dream Journal:</strong> Record your dreams in a private journal. You can add details,
-                    emotions, and even images to capture the essence of your dreams.</li>
-                <li><strong>Community Sharing:</strong> Share your dreams with the Afterlight community. Connect with
-                    others who have similar dream experiences and gain new perspectives.</li>
-                <li><strong>Dream Interpretation:</strong> Explore interpretations of common dream symbols and themes.
-                    Learn about the possible meanings behind your dreams and how they relate to your waking life.</li>
-            </ul>
+            <div class="featureCarousel" aria-label="Afterlight features banner">
+                <ul class="featureList" role="list">
+                    <li class="featureCard">
+                        <h2>Dream Journal</h2>
+                        <p>Record your dreams in a private journal. Add details, emotions, and images to capture the
+                            essence of each dream.</p>
+                    </li>
+                    <li class="featureCard">
+                        <h2>Community Sharing</h2>
+                        <p>Share your dreams with the Afterlight community, connect with others, and gain new
+                            perspectives.</p>
+                    </li>
+                    <li class="featureCard">
+                        <h2>Dream Interpretation</h2>
+                        <p>Explore common dream symbols and themes to better understand how dreams may relate to waking
+                            life.</p>
+                    </li>
+                    <li class="featureCard">
+                        <h2>Dream Streaks</h2>
+                        <p>Track your dream-writing consistency and keep momentum with simple streak milestones.</p>
+                    </li>
+                    <li class="featureCard" aria-hidden="true">
+                        <h2>Dream Journal</h2>
+                        <p>Record your dreams in a private journal. Add details, emotions, and images to capture the
+                            essence of each dream.</p>
+                    </li>
+                    <li class="featureCard" aria-hidden="true">
+                        <h2>Community Sharing</h2>
+                        <p>Share your dreams with the Afterlight community, connect with others, and gain new
+                            perspectives.</p>
+                    </li>
+                    <li class="featureCard" aria-hidden="true">
+                        <h2>Dream Interpretation</h2>
+                        <p>Explore common dream symbols and themes to better understand how dreams may relate to waking
+                            life.</p>
+                    </li>
+                    <li class="featureCard" aria-hidden="true">
+                        <h2>Dream Streaks</h2>
+                        <p>Track your dream-writing consistency and keep momentum with simple streak milestones.</p>
+                    </li>
+                </ul>
+            </div>
         </section>
 
         <!-- Join Section -->
-        <section id="joinSection">
-            <h2>Join Afterlight Today</h2>
-            <p class="join">Ready to embark on a journey through the world of dreams? Sign up for Afterlight and start
-                exploring the mysteries of your subconscious mind. Whether you want to keep a private dream journal or
-                share your dreams with a community of like-minded individuals, Afterlight has something for everyone.
-            </p>
-            <a href="sign-up.html" class="joinButton">Sign Up Now</a>
+        <section id="joinSection" class="joinCTA">
+            <div class="joinCard">
+                <h2>Ready to Begin?</h2>
+                <p class="joinLead">Join thousands of dreamers exploring the subconscious. Start your private dream
+                    journal, track streaks, and connect with a supportive community.</p>
+                <ul class="joinPerks">
+                    <li>Keep a private dream journal</li>
+                    <li>Track daily streaks and earn badges</li>
+                    <li>Share with a community of dreamers</li>
+                </ul>
+                <a href="sign-up.html" class="joinButton">Sign Up Now</a>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="loginSection" class="loginCTA">
+            <div class="loginCard">
+                <h2>Welcome Back, Dreamer</h2>
+                <p class="loginLead">Pick up where you left off in your journal, keep your streak alive, and see what
+                    the community has discovered overnight.</p>
+                <ul class="loginPerks">
+                    <li>Track your daily streak milestones</li>
+                    <li>Save private entries with rich detail</li>
+                    <li>Jump into trending community discussions</li>
+                </ul>
+                <a href="login.html" class="loginButton">Login Now</a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->

@@ -5,43 +5,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Your Journal</title>
+    <title>Dream Journal - Afterlight</title>
 </head>
 
-<body>
+<body class="journalPage">
     <!-- Header -->
-    <header><span><img src="Assets\images\logo.png"></span>Your Dream Journal
+    <header><span><img src="Assets\images\logo.png"></span>
+        <div class="pageTitle">Dream Journal</div>
         <!-- Navigation -->
         <nav>
             <ul>
-                <li><a href="user-page.html">Home</a></li>
-                <li><a href="community-page.html">Community Page</a></li>
+                <li><a href="user-page.html">Dashboard</a></li>
+                <li><a href="community-page.html">Community</a></li>
                 <li><a href="index.html">Logout</a></li>
             </ul>
         </nav>
     </header>
     <!-- Main Content -->
-    <main>
+    <main class="journalPage">
         <section id="journalSection">
-            <h2>Your Dreams</h2>
-            <p class="welcome">This is where you can record your dreams. You can add details, emotions, and even images
-                to
-                capture the
-                essence of your dreams.</p>
-            <!-- Dream List -->
-            <ul id="dreamList"></ul>
+            <div class="journalHero">
+                <h1>Your Dream Journal</h1>
+                <p class="journalLead">A sacred space to capture, track, and reflect on your dreams. Record what you
+                    experience and watch your progress flourish.</p>
+            </div>
+
+            <div id="journalLayout">
+                <div id="dreamEntriesPanel">
+                    <h2>Recent Entries</h2>
+                    <!-- Dream List -->
+                    <ul id="dreamList" class="dreamEntries"></ul>
+                </div>
+
+                <aside id="streakTracker" aria-live="polite" class="trackerSidebar">
+                    <h2>Your Progress</h2>
+                    <div class="trackerLevelWrap">
+                        <span class="levelIcon" aria-hidden="true">✨</span>
+                        <span class="levelLabel">Level</span>
+                        <span id="dreamLevel" class="levelValue">1</span>
+                    </div>
+                    <div class="trackerGrid">
+                        <div class="trackerCard">
+                            <span class="trackerIcon" aria-hidden="true">🔥</span>
+                            <span class="trackerLabel">Current</span>
+                            <span id="currentStreak" class="trackerValue">0</span>
+                            <span class="trackerMeta">day streak</span>
+                        </div>
+                        <div class="trackerCard">
+                            <span class="trackerIcon" aria-hidden="true">🏆</span>
+                            <span class="trackerLabel">Best</span>
+                            <span id="bestStreak" class="trackerValue">0</span>
+                            <span class="trackerMeta">days</span>
+                        </div>
+                    </div>
+                    <div class="trackerDate">Last entry: <span id="lastEntryDate">No entries yet</span></div>
+                    <div class="xpSection">
+                        <div class="xpHead">
+                            <span>⭐ XP</span>
+                            <span id="dreamXp">0 / 5</span>
+                        </div>
+                        <div class="xpBar" role="progressbar" aria-label="Dream XP progress">
+                            <div id="xpFill"></div>
+                        </div>
+                    </div>
+                    <p class="rewardLine"><span class="rewardIcon" aria-hidden="true">🎉</span> Next reward:
+                        <span id="nextReward">3-day streak badge</span>
+                    </p>
+                    <div id="badgeRow" aria-label="Streak badges">
+                        <span class="badge locked" id="badge3">3 Days</span>
+                        <span class="badge locked" id="badge7">7 Days</span>
+                        <span class="badge locked" id="badge14">14 Days</span>
+                    </div>
+                </aside>
+            </div>
 
             <!-- Dream Entry Form -->
-            <form id="dreamJournalForm">
-                <input type="text" id="dreamTitle" name="dreamTitle" required placeholder="Title...">
+            <div class="formWrapper">
+                <h2>Record Your Dream</h2>
+                <form id="dreamJournalForm" class="dreamForm">
+                    <div class="formGroup">
+                        <label for="dreamTitle">Dream Title</label>
+                        <input type="text" id="dreamTitle" name="dreamTitle" required
+                            placeholder="Give your dream a name...">
+                    </div>
 
-                <textarea id="dreamDetails" name="dreamDetails" rows="4" required
-                    placeholder="Last Nights Dream..."></textarea>
-                <div class="buttonContainer">
-                    <button type="submit">Save Dream</button>
-                    <button type="button" id="addImage">Add Image</button>
-                </div>
-            </form>
+                    <div class="formGroup">
+                        <label for="dreamDetails">Dream Details</label>
+                        <textarea id="dreamDetails" name="dreamDetails" rows="6" required
+                            placeholder="Describe what you experienced..."></textarea>
+                    </div>
+
+                    <div class="formActions">
+                        <button type="submit" class="submitButton">Save Dream Entry</button>
+                        <button type="button" id="addImage" class="secondaryButton">Add Image</button>
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
     <!-- Footer -->

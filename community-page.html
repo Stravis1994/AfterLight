@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Afterlight Community</title>
+    <title>Community - Afterlight</title>
 </head>
 
-<body>
+<body class="communityPage">
     <!-- Header -->
     <header><span><img src="Assets\images\logo.png"></span>Community
         <nav>
             <ul>
-                <li><a href="user-page.html">Home</a></li>
+                <li><a href="user-page.html">Dashboard</a></li>
                 <li><a href="dream-journal.html">Dream Journal</a></li>
                 <li><a href="index.html">Logout</a></li>
             </ul>
@@ -21,37 +21,103 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="communityPage">
         <!-- Community Intro -->
-        <section id="communitySection">
-            <h1>Welcome to the Afterlight Community</h1>
-            <p class="community">Connect with fellow dream enthusiasts, share your dreams, and explore the rich tapestry
-                of dream interpretations. Our community is a safe and supportive space for all dreamers, whether you're
-                new to the world of dreams or a seasoned explorer. Join discussions, share insights, and discover the
-                fascinating world of dreams together.</p>
+        <section id="communitySection" class="communityHero">
+            <div class="communityContent">
+                <h1>Afterlight Community</h1>
+                <p class="communityLead">Connect with fellow dream enthusiasts, share your dreams, and explore the rich
+                    tapestry of dream interpretations. Our community is a safe and supportive space for all dreamers.
+                </p>
+            </div>
         </section>
 
         <!-- Recent Community Posts -->
-        <section id="communityPosts">
-            <h2>Recent Community Posts</h2>
-            <div class="entry">
-                <h3>Dream Interpretation: Flying</h3>
-                <p class="post">Has anyone had dreams about flying? What do you think it symbolizes?</p>
-            </div>
-            <div class="entry">
-                <h3>Lucid Dreaming Tips</h3>
-                <p class="post">Share your best tips for achieving lucid dreams!</p>
-            </div>
-            <div class="entry">
-                <h3>Recurring Dreams</h3>
-                <p class="post">Do you have any recurring dreams? What do you think they mean?</p>
-            </div>
-            <div class="buttonContainer">
-                <button class="welcomeButton" onclick="window.location.href='user-page.html'"> Go Back To Home</button>
-                <button class="welcomeButton" onclick="window.location.href='dream-journal.html'">Go To Your Dream
-                    Journal</button>
+        <section id="communityPosts" class="communityFeed">
+            <h2>Recent Discussions</h2>
+            <div class="communityTicker" aria-label="Recent community posts ticker">
+                <div class="communityTrack">
+                    <div class="entry">
+                        <h3>Dream Interpretation: Flying</h3>
+                        <p class="post">Has anyone had dreams about flying? What do you think it symbolizes?</p>
+                    </div>
+                    <div class="entry">
+                        <h3>Lucid Dreaming Tips</h3>
+                        <p class="post">Share your best tips for achieving lucid dreams!</p>
+                    </div>
+                    <div class="entry">
+                        <h3>Recurring Dreams</h3>
+                        <p class="post">Do you have any recurring dreams? What do you think they mean?</p>
+                    </div>
+                    <div class="entry">
+                        <h3>Nightmare Patterns</h3>
+                        <p class="post">I keep dreaming about missing a train before big deadlines. Anyone else get
+                            this?</p>
+                    </div>
+                    <div class="entry">
+                        <h3>Dream Symbol: Ocean</h3>
+                        <p class="post">What does it mean when the ocean is calm in one dream and stormy in the next?
+                        </p>
+                    </div>
+                    <div class="entry">
+                        <h3>Best Bedtime Routine</h3>
+                        <p class="post">Reading for 20 minutes before sleep has made my dreams way more vivid lately.
+                        </p>
+                    </div>
 
+                    <div class="entry" aria-hidden="true">
+                        <h3>Dream Interpretation: Flying</h3>
+                        <p class="post">Has anyone had dreams about flying? What do you think it symbolizes?</p>
+                    </div>
+                    <div class="entry" aria-hidden="true">
+                        <h3>Lucid Dreaming Tips</h3>
+                        <p class="post">Share your best tips for achieving lucid dreams!</p>
+                    </div>
+                    <div class="entry" aria-hidden="true">
+                        <h3>Recurring Dreams</h3>
+                        <p class="post">Do you have any recurring dreams? What do you think they mean?</p>
+                    </div>
+                    <div class="entry" aria-hidden="true">
+                        <h3>Nightmare Patterns</h3>
+                        <p class="post">I keep dreaming about missing a train before big deadlines. Anyone else get
+                            this?</p>
+                    </div>
+                    <div class="entry" aria-hidden="true">
+                        <h3>Dream Symbol: Ocean</h3>
+                        <p class="post">What does it mean when the ocean is calm in one dream and stormy in the next?
+                        </p>
+                    </div>
+                    <div class="entry" aria-hidden="true">
+                        <h3>Best Bedtime Routine</h3>
+                        <p class="post">Reading for 20 minutes before sleep has made my dreams way more vivid lately.
+                        </p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <section id="threadComposer">
+            <div class="formWrapper">
+                <h2>Start A Discussion Thread</h2>
+                <form id="communityThreadForm" class="dreamForm">
+                    <div class="formGroup">
+                        <label for="threadTitle">Thread Title</label>
+                        <input type="text" id="threadTitle" name="threadTitle" required
+                            placeholder="What do you want to discuss?">
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="threadBody">Discussion Details</label>
+                        <textarea id="threadBody" name="threadBody" rows="6" required
+                            placeholder="Write your post here..."></textarea>
+                    </div>
+
+                    <div class="formActions">
+                        <button type="submit" class="submitButton">Post Thread</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
