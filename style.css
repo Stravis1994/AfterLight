@@ -2255,40 +2255,54 @@ span {
     }
 
     .featureCarousel {
-        /* Mobile carousel switches back to visible overflow. */
+        /* Mobile carousel with vertical scroll window. */
         margin: 15px 0 30px;
-        padding: 14px 10px;
-        overflow: visible;
+        padding: 8px;
+        overflow: hidden;
+        height: 360px;
     }
 
     .featureCard {
         /* Responsive feature cards for mobile. */
-        flex-basis: min(78vw, 280px);
-        min-height: 170px;
+        flex-basis: auto;
+        min-height: auto;
         font-size: 1.05rem;
-        padding: 16px;
+        padding: 14px 10px;
         border-radius: 12px;
     }
 
     .featureList {
-        /* Mobile static wrapped layout. */
-        --feature-gap: 28px;
-        flex-wrap: wrap;
-        justify-content: center;
+        /* Mobile vertical scrolling layout. */
+        --feature-gap: 18px;
+        flex-direction: column;
+        justify-content: flex-start;
         width: 100%;
         min-width: auto;
-        animation: none;
-        will-change: auto;
+        animation: featureVerticalScroll 22s linear infinite;
+        will-change: transform;
+    }
+
+    .featureCarousel:hover .featureList {
+        /* Pauses animation while user reads on mobile. */
+        animation-play-state: paused;
     }
 
     .featureCard h2 {
         /* Scales card heading for mobile readability. */
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        margin: 0;
+        padding-top: 4px;
+    }
+
+    .featureCard p {
+        /* Mobile card text sizing. */
+        font-size: 0.9rem;
+        margin: 6px 0 0 0;
     }
 
     .featureCard[aria-hidden="true"] {
-        /* Hide duplicates on mobile when not scrolling. */
-        display: none;
+        /* Show duplicates on mobile for seamless vertical loop. */
+        display: flex;
     }
 
     .loginPage .authLayout {
@@ -2402,5 +2416,15 @@ span {
     .joinButton {
         /* Keeps join button centered in mobile flow. */
         justify-self: center;
+    }
+
+    @keyframes featureVerticalScroll {
+        from {
+            transform: translateY(calc(-50% - (var(--feature-gap) / 2)));
+        }
+
+        to {
+            transform: translateY(0);
+        }
     }
 }
