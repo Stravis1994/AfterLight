@@ -12,8 +12,6 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* Desktop/default keeps normal page scrolling. */
-    overflow-y: auto;
 }
 
 /* Header */
@@ -1249,7 +1247,7 @@ h2 {
 }
 
 .featureCarousel {
-    /* Full-width banner shell with subtle panel styling. */
+    /* Full-width banner shell with horizontal scroll viewport. */
     width: 100%;
     max-width: 100%;
     margin: 20px 0 40px;
@@ -1262,7 +1260,7 @@ h2 {
 }
 
 .featureList {
-    /* Horizontal marquee track for continuously scrolling feature cards. */
+    /* Horizontal scrolling feature cards. */
     --feature-gap: 56px;
     display: flex;
     align-items: stretch;
@@ -1274,12 +1272,12 @@ h2 {
     list-style: none;
     width: max-content;
     min-width: max-content;
-    animation: featureBannerScroll 24s linear infinite;
+    animation: featureHorizontalScroll 32s linear infinite;
     will-change: transform;
 }
 
 .featureCarousel:hover .featureList {
-    /* Pauses movement while the user reads a card. */
+    /* Pauses animation while user reads cards. */
     animation-play-state: paused;
 }
 
@@ -1312,11 +1310,11 @@ h2 {
 }
 
 .featureCard[aria-hidden="true"] {
-    /* Keep duplicated cards visible for a seamless marquee loop. */
+    /* Show duplicated cards for seamless horizontal loop. */
     display: flex;
 }
 
-@keyframes featureBannerScroll {
+@keyframes featureHorizontalScroll {
     from {
         transform: translateX(calc(-50% - (var(--feature-gap) / 2)));
     }
@@ -1882,7 +1880,6 @@ span {
     body {
         /* Prevents jank from fixed backgrounds on mobile browsers. */
         background-attachment: scroll;
-        overflow-y: hidden;
         overflow-x: hidden;
     }
 
@@ -2258,13 +2255,14 @@ span {
     }
 
     .featureCarousel {
-        /* Keeps banner comfortable on small screens. */
+        /* Mobile carousel switches back to visible overflow. */
         margin: 15px 0 30px;
         padding: 14px 10px;
+        overflow: visible;
     }
 
     .featureCard {
-        /* Scales scrolling cards for phone width. */
+        /* Responsive feature cards for mobile. */
         flex-basis: min(78vw, 280px);
         min-height: 170px;
         font-size: 1.05rem;
@@ -2273,14 +2271,24 @@ span {
     }
 
     .featureList {
-        /* Keeps spacing comfortable while cards scroll on mobile. */
+        /* Mobile static wrapped layout. */
         --feature-gap: 28px;
-        animation-duration: 20s;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        min-width: auto;
+        animation: none;
+        will-change: auto;
     }
 
     .featureCard h2 {
         /* Scales card heading for mobile readability. */
         font-size: 1.2rem;
+    }
+
+    .featureCard[aria-hidden="true"] {
+        /* Hide duplicates on mobile when not scrolling. */
+        display: none;
     }
 
     .loginPage .authLayout {
