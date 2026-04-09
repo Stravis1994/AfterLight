@@ -12,6 +12,8 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    /* Desktop/default keeps normal page scrolling. */
+    overflow-y: auto;
 }
 
 /* Header */
@@ -1256,23 +1258,24 @@ h2 {
     background: rgba(49, 19, 76, 0.55);
     border-top: 1px solid rgba(248, 226, 252, 0.25);
     border-bottom: 1px solid rgba(248, 226, 252, 0.25);
-    overflow: visible;
+    overflow: hidden;
 }
 
 .featureList {
-    /* Static feature cards arranged in a wrapped row. */
+    /* Horizontal marquee track for continuously scrolling feature cards. */
     --feature-gap: 56px;
     display: flex;
     align-items: stretch;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: var(--feature-gap);
     margin: 0;
     padding: 0;
     list-style: none;
-    width: 100%;
-    animation: none;
-    will-change: auto;
+    width: max-content;
+    min-width: max-content;
+    animation: featureBannerScroll 24s linear infinite;
+    will-change: transform;
 }
 
 .featureCarousel:hover .featureList {
@@ -1309,8 +1312,8 @@ h2 {
 }
 
 .featureCard[aria-hidden="true"] {
-    /* Hide duplicated marquee-only cards when not scrolling. */
-    display: none;
+    /* Keep duplicated cards visible for a seamless marquee loop. */
+    display: flex;
 }
 
 @keyframes featureBannerScroll {
@@ -1879,6 +1882,7 @@ span {
     body {
         /* Prevents jank from fixed backgrounds on mobile browsers. */
         background-attachment: scroll;
+        overflow-y: hidden;
         overflow-x: hidden;
     }
 
