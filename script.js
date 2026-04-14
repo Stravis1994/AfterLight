@@ -1,4 +1,11 @@
 addEventListener("DOMContentLoaded", function () {
+    const accountDeletedMessageKey = "afterlightAccountDeletedMessage";
+
+    if (sessionStorage.getItem(accountDeletedMessageKey) === "true") {
+        sessionStorage.removeItem(accountDeletedMessageKey);
+        alert("Your account has been deleted.");
+    }
+
     // Handles sign-up form submission on the sign-up page.
     const signUpForm = document.getElementById("signUpForm");
     if (signUpForm) {
@@ -220,6 +227,28 @@ addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             console.log("Add Image button clicked!");
             alert("Add Image functionality is not implemented yet.");
+        });
+    }
+
+    const deleteAccountButton = document.getElementById("deleteAccountButton");
+
+    if (deleteAccountButton) {
+        deleteAccountButton.addEventListener("click", function () {
+            const isConfirmed = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
+
+            if (!isConfirmed) {
+                return;
+            }
+
+            // Remove all app-specific persisted data to represent account deletion.
+            Object.keys(localStorage).forEach(function (key) {
+                if (key.toLowerCase().startsWith("afterlight")) {
+                    localStorage.removeItem(key);
+                }
+            });
+
+            sessionStorage.setItem(accountDeletedMessageKey, "true");
+            window.location.href = "index.html";
         });
     }
 });

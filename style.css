@@ -909,6 +909,9 @@ h2 {
     margin-top: 16px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .saveProfileButton {
@@ -929,6 +932,26 @@ h2 {
 .saveProfileButton:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(109, 42, 151, 0.5);
+}
+
+.deleteAccountButton {
+    min-width: 220px;
+    padding: 12px 24px;
+    background: linear-gradient(140deg, rgba(235, 82, 130, 0.95), rgba(168, 36, 84, 0.96));
+    color: #f8e2fc;
+    border: 1px solid rgba(255, 206, 220, 0.36);
+    border-radius: 8px;
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(168, 36, 84, 0.34);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.deleteAccountButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(168, 36, 84, 0.45);
 }
 
 /* Community Page */
